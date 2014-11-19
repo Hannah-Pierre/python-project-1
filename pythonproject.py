@@ -10,7 +10,7 @@ target = drawpad.create_rectangle(targetx1,targety1,targetx2,targety2, fill="red
 enemy2 = drawpad.create_rectangle(200, 100, 280, 120, fill="red")
 player = drawpad.create_oval(300,0,320,20, fill="purple")
 direction = 1
-direction2 = 5 
+direction2 = 2 
 
 #creating buttons to move left and right 
 class MyApp:
@@ -75,9 +75,9 @@ class MyApp:
             global direction2
             e2x1, e2y1, e2x2, e2y1 = drawpad.coords(enemy2)
             if e2x2 > 600:
-                direction2 = -5
+                direction2 = -2
             elif e2x1 < 0: 
-                direction2 = 5
+                direction2 = 2
             drawpad.move(enemy2,direction2,0)
            
             drawpad.after(1,self.animate)
@@ -104,7 +104,7 @@ class MyApp:
                 
 
 direction = 1
-direction2 = 5 
+direction2 = 2
 
 
                
