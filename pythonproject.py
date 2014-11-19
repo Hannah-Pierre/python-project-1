@@ -72,7 +72,7 @@ class MyApp:
 
   
             global enemy2
-            global direction
+            global direction2
             e2x1, e2y1, e2x2, e2y1 = drawpad.coords(enemy2)
             if e2x2 > 600:
                 direction2 = -5
