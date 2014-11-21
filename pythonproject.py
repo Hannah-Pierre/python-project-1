@@ -20,7 +20,13 @@ player = drawpad.create_oval(300,0,320,20, fill="purple")
 
 direction = -1
 direction2 = 2 
-direction3 = -3 
+direction3 = -3
+direction4 = 4
+direction5 = -5
+direction6 = 6
+direction7 = -7
+direction8 = 8
+direction9 = -9
 gopressed = False
 
 #creating buttons to move left and right 
@@ -90,7 +96,6 @@ class MyApp:
                     direction = 1
             drawpad.move(target,direction,0)
 
-  
             global enemy2
             global direction2
             e2x1, e2y1, e2x2, e2y2 = drawpad.coords(enemy2)
@@ -108,6 +113,43 @@ class MyApp:
             elif e3x1 < 0: 
                 direction3 = 3
             drawpad.move(enemy3,direction3,0)
+           
+            global enemy4
+            global direction4
+            e4x1, e4y1, e4x2, e4y2 = drawpad.coords(enemy4)
+            if e4x2 > 600:
+                direction4 = -4
+            elif e4x1 < 0: 
+                direction4 = 4
+            drawpad.move(enemy4,direction4,0)
+            
+            global enemy5
+            global direction5
+            e5x1, e5y1, e5x2, e5y2 = drawpad.coords(enemy5)
+            if e5x2 > 600:
+                direction5 = -5
+            elif e5x1 < 0: 
+                direction5 = 5
+            drawpad.move(enemy5,direction5,0)
+            
+            global enemy6
+            global direction6
+            e6x1, e6y1, e6x2, e6y2 = drawpad.coords(enemy6)
+            if e6x2 > 600:
+                direction6 = -6
+            elif e6x1 < 0: 
+                direction6 = 6
+            drawpad.move(enemy6,direction6,0)
+            
+            global enemy7
+            global direction7
+            e7x1, e7y1, e7x2, e7y2 = drawpad.coords(enemy7)
+            if e7x2 > 600:
+                direction7 = -7
+            elif e7x1 < 0: 
+                direction7 = 7
+            drawpad.move(enemy7,direction7,0)
+            
             
             global player 
             x1,y1,x2,y2 = drawpad.coords(player)
