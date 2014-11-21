@@ -11,6 +11,7 @@ enemy2 = drawpad.create_rectangle(200, 100, 280, 120, fill="red")
 player = drawpad.create_oval(300,0,320,20, fill="purple")
 direction = 1
 direction2 = 2 
+gopressed = False
 
 #creating buttons to move left and right 
 class MyApp:
@@ -30,27 +31,35 @@ class MyApp:
 		self.button2 = Button(self.myContainer1)
 		self.button2.configure(text="Right", background= "pink")
 		self.button2.grid(row=0,column=2)
+		
+		self.gobutton = Button(self.myContainer1)
+		self.gobutton.configure(text="press to start", background= "green")
+		self.gobutton.grid(row=1,column=0)
 
 					
 		# "Bind" an action to the first button												
 
                 self.button5.bind("<Button-1>", self.button5Click)
 		self.button2.bind("<Button-1>", self.button2Click)
+		self.gobutton.bind("<Button-1>", self.gobuttonclick)
+		
+		
 		
 		  
 		# This creates the drawpad - no need to change this 
 		drawpad.pack()
 		self.animate()
 
-		
-
-               
-        
+	def gobuttonclick(self,event) :
+	       global gopressed
+	       gopressed = True
+	       
+	           
         def button2Click(self, event):  
                 global oval
 		global drawpad
 		x1,y1,x2,y2 = drawpad.coords(player)
-		if x2+1 < 480 :
+		if x2+1 < 600 :
                     drawpad.move(player, 20, 0)
 	
 	def button5Click(self, event):   
@@ -63,6 +72,7 @@ class MyApp:
 	def animate(self):
             global target
             global direction
+            global gopressed
             targetx1,targety1,targetx2,targety2 = drawpad.coords(target)
             if targetx2 > 600:
                     direction = -1
@@ -79,27 +89,31 @@ class MyApp:
             elif e2x1 < 0: 
                 direction2 = 2
             drawpad.move(enemy2,direction2,0)
-           
+            
+            global player 
+            x1,y1,x2,y2 = drawpad.coords(player)
+            if gopressed == True :
+                drawpad.move(player, 0, 1)
+            if y2 > 600 :
+                drawpad.delete(player)
+                drawpad.create_rectangle(250,250,250,250, text="you win!", background="orange")
+            
+            
             drawpad.after(1,self.animate)
             
 
 	def collisionDetect(self):
             global target
+            global enemy2
             global drawpad
             global player
-            e2x1, e2y1, e2x2, e2y1 = drawpad.coords(target)
-
-            x1,y1,x2,y2 = drawpad.coords(player)    
-            if x1 > e2x1 and x2 < e2x2 :
-                if y1 > e2y1 and y2 < e2y1 :
-                    return True
-            return False
+            x1,y1,x2,y2 = drawpad.coords(player)
             targetx1,targety1,targetx2,targety2 = drawpad.coords(target)
-            x1,y1,x2,y2 = drawpad.coords(player)    
-            if x1 > targetx1 and x2 < targetx2 :
-                if y1 > targety1 and y2 < targety2 :
-                    return True
-            return False
+            e2x1, e2y1, e2x2, e2y1 = drawpad.coords(enemy2)
+            if y2 > targety1 and y2 < targety2 :
+                drawpad.delete(player)
+            
+
                     
                 
 
