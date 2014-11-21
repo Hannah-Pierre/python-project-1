@@ -8,7 +8,9 @@ targetx2 = 280
 targety2 = 60
 target = drawpad.create_rectangle(targetx1,targety1,targetx2,targety2, fill="red")
 enemy2 = drawpad.create_rectangle(200, 100, 280, 120, fill="red")
+startarea = drawpad.create_rectangle(300,0,320,20, fill="black")
 player = drawpad.create_oval(300,0,320,20, fill="purple")
+
 direction = 1
 direction2 = 2 
 gopressed = False
@@ -97,6 +99,10 @@ class MyApp:
             if y2 > 600 :
                 drawpad.delete(player)
                 drawpad.create_rectangle(250,250,250,250, text="you win!", background="orange")
+            sx1, sy1, sx2, sy2 = drawpad.coords(startarea)
+            if y2 > targety1 and y2 < targety2 and x1 > targetx1 and x2 < targetx2 :
+                drawpad.delete(player)
+            
             
             
             drawpad.after(1,self.animate)
