@@ -8,11 +8,13 @@ targetx2 = 280
 targety2 = 60
 target = drawpad.create_rectangle(targetx1,targety1,targetx2,targety2, fill="red")
 enemy2 = drawpad.create_rectangle(200, 100, 280, 120, fill="red")
-startarea = drawpad.create_rectangle(300,0,320,20, fill="black")
+enemy3 = drawpad.create_rectangle(200, 160, 280, 180, fill="red")
+startarea = drawpad.create_rectangle(300,0,320,20, fill="white")
 player = drawpad.create_oval(300,0,320,20, fill="purple")
 
 direction = 1
 direction2 = 2 
+direction3 = -3 
 gopressed = False
 
 #creating buttons to move left and right 
@@ -85,12 +87,21 @@ class MyApp:
   
             global enemy2
             global direction2
-            e2x1, e2y1, e2x2, e2y1 = drawpad.coords(enemy2)
+            e2x1, e2y1, e2x2, e2y2 = drawpad.coords(enemy2)
             if e2x2 > 600:
                 direction2 = -2
             elif e2x1 < 0: 
                 direction2 = 2
             drawpad.move(enemy2,direction2,0)
+            
+            global enemy2
+            global direction3
+            e3x1, e3y1, e3x2, e3y2 = drawpad.coords(enemy3)
+            if e3x2 > 600:
+                direction3 = -3
+            elif e3x1 < 0: 
+                direction3 = 3
+            drawpad.move(enemy3,direction3,0)
             
             global player 
             x1,y1,x2,y2 = drawpad.coords(player)
@@ -101,7 +112,11 @@ class MyApp:
                 drawpad.create_rectangle(250,250,250,250, text="you win!", background="orange")
             sx1, sy1, sx2, sy2 = drawpad.coords(startarea)
             if y2 > targety1 and y2 < targety2 and x1 > targetx1 and x2 < targetx2 :
-                drawpad.delete(player)
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if y2 > e2y1 and y2 < e2y2 and x1 > e2x1 and x2 < e2x2 :
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if y2 > e3y1 and y2 < e3y2 and x1 > e3x1 and x2 < e3x2 :
+                drawpad.move(player, sx1 - x1, sy2 - y2)
             
             
             
@@ -115,7 +130,7 @@ class MyApp:
             global player
             x1,y1,x2,y2 = drawpad.coords(player)
             targetx1,targety1,targetx2,targety2 = drawpad.coords(target)
-            e2x1, e2y1, e2x2, e2y1 = drawpad.coords(enemy2)
+            e2x1, e2y1, e2x2, e2y2 = drawpad.coords(enemy2)
             if y2 > targety1 and y2 < targety2 :
                 drawpad.delete(player)
             
