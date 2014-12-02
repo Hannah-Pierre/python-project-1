@@ -150,6 +150,24 @@ class MyApp:
                 direction7 = 7
             drawpad.move(enemy7,direction7,0)
             
+            global enemy8
+            global direction8
+            e8x1, e8y1, e8x2, e8y2 = drawpad.coords(enemy8)
+            if e8x2 > 600:
+                direction8 = -8
+            elif e8x1 < 0: 
+                direction8 = 8
+            drawpad.move(enemy8,direction8,0)
+            
+            global enemy9
+            global direction9
+            e9x1, e9y1, e9x2, e9y2 = drawpad.coords(enemy9)
+            if e9x2 > 600:
+                direction9 = -9
+            elif e9x1 < 0: 
+                direction9 = 9
+            drawpad.move(enemy9,direction9,0)
+            
             
             global player 
             x1,y1,x2,y2 = drawpad.coords(player)
@@ -158,28 +176,78 @@ class MyApp:
             if y2 > 600 :
                 drawpad.delete(player)
             sx1, sy1, sx2, sy2 = drawpad.coords(startarea)
+            
+            # enemy1
             if y2 > targety1 and y2 < targety2 and x1 > targetx1 and x2 < targetx2 :
                 drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x1 < targetx2 and x1 > targetx1 and y2 > targety1 and y2 < targety2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x2 > targetx1 and x2 < targetx2 and y2 > targety1 and  y2 < targety2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            #enemy2    
             if y2 > e2y1 and y2 < e2y2 and x1 > e2x1 and x2 < e2x2 :
                 drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x1 < e2x2 and x1 > e2x1 and y2 > e2y1 and y2 < e2y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x2 > e2x1 and x2 < e2x2 and y2 > e2y1 and y2 < e2y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            #enemy3    
             if y2 > e3y1 and y2 < e3y2 and x1 > e3x1 and x2 < e3x2 :
                 drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x1 < e3x2 and x1 > e3x1 and y2 > e3y1 and y2 < e3y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x2 > e3x1 and x2 < e3x2 and y2 > e3y1 and y2 < e3y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            #enemy4
+            if y2 > e4y1 and y2 < e4y2 and x1 > e4x1 and x2 < e4x2 :
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x1 < e4x2 and x1 > e4x1 and y2 > e4y1 and y2 < e4y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x2 > e4x1 and x2 < e4x2 and y2 > e4y1 and y2 < e4y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            #enemy5    
+            if y2 > e5y1 and y2 < e5y2 and x1 > e5x1 and x2 < e5x2 :
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x1 < e5x2 and x1 > e5x1 and y2 > e5y1 and y2 < e5y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x2 > e5x1 and x2 < e5x2 and y2 > e5y1 and y2 < e5y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2) 
+            #enemy6
+            if y2 > e6y1 and y2 < e6y2 and x1 > e6x1 and x2 < e6x2 :
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x1 < e6x2 and x1 > e6x1 and y2 > e6y1 and y2 < e6y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x2 > e6x1 and x2 < e6x2 and y2 > e6y1 and y2 < e6y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            #enemy7
+            if y2 > e7y1 and y2 < e7y2 and x1 > e7x1 and x2 < e7x2 :
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x1 < e7x2 and x1 > e7x1 and y2 > e7y1 and y2 < e7y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x2 > e7x1 and x2 < e7x2 and y2 > e7y1 and y2 < e7y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            #enemy8
+            if y2 > e8y1 and y2 < e8y2 and x1 > e8x1 and x2 < e8x2 :
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x1 < e8x2 and x1 > e8x1 and y2 > e8y1 and y2 < e8y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x2 > e8x1 and x2 < e8x2 and y2 > e8y1 and y2 < e8y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            #enemy9 
+            if y2 > e9y1 and y2 < e9y2 and x1 > e9x1 and x2 < e9x2 :
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x1 < e9x2 and x1 > e9x1 and y2 > e9y1 and y2 < e9y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+            if x2 > e9x1 and x2 < e9x2 and y2 > e9y1 and y2 < e9y2:
+                drawpad.move(player, sx1 - x1, sy2 - y2)
+
             
             
             
-            drawpad.after(1,self.animate)
+            drawpad.after(5,self.animate)
             
 
-	def collisionDetect(self):
-            global target
-            global enemy2
-            global drawpad
-            global player
-            x1,y1,x2,y2 = drawpad.coords(player)
-            targetx1,targety1,targetx2,targety2 = drawpad.coords(target)
-            e2x1, e2y1, e2x2, e2y2 = drawpad.coords(enemy2)
-            if y2 > targety1 and y2 < targety2 :
-                drawpad.delete(player)
+
             
 
                     
