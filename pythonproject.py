@@ -16,7 +16,14 @@ enemy7 = drawpad.create_rectangle(200, 400, 280, 420, fill="red")
 enemy8 = drawpad.create_rectangle(200, 460, 280, 480, fill="red")
 enemy9 = drawpad.create_rectangle(200, 520, 280, 540, fill="red")
 startarea = drawpad.create_rectangle(300,0,320,20, fill="white")
-player = drawpad.create_oval(300,0,320,20, fill="purple")
+drawpad.create_rectangle(300,0,305,5, fill ="black")
+drawpad.create_rectangle(310,0,315,5, fill ="black")
+drawpad.create_rectangle(305,5,310,10, fill ="black")
+drawpad.create_rectangle(315,5,320,10, fill ="black")
+
+
+
+player = drawpad.create_oval(300,0,320,20, fill="magenta")
 
 direction = -1
 direction2 = 2 
@@ -42,15 +49,15 @@ class MyApp:
 		
 		self.button5 = Button(self.myContainer1)
 		self.button5.configure(text="Left", background= "pink")
-		self.button5.grid(row=0,column=1)
+		self.button5.grid(row=2,column=0)
 		
 		self.button2 = Button(self.myContainer1)
 		self.button2.configure(text="Right", background= "pink")
-		self.button2.grid(row=0,column=2)
+		self.button2.grid(row=2,column=3)
 		
 		self.gobutton = Button(self.myContainer1)
 		self.gobutton.configure(text="press to start", background= "green")
-		self.gobutton.grid(row=1,column=0)
+		self.gobutton.grid(row=1,column=2)
 
 					
 		# "Bind" an action to the first button												
