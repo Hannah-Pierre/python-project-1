@@ -16,10 +16,16 @@ enemy7 = drawpad.create_rectangle(200, 400, 280, 420, fill="red")
 enemy8 = drawpad.create_rectangle(200, 460, 280, 480, fill="red")
 enemy9 = drawpad.create_rectangle(200, 520, 280, 540, fill="red")
 startarea = drawpad.create_rectangle(300,0,320,20, fill="white")
+#finished pattern
 drawpad.create_rectangle(300,0,305,5, fill ="black")
 drawpad.create_rectangle(310,0,315,5, fill ="black")
 drawpad.create_rectangle(305,5,310,10, fill ="black")
 drawpad.create_rectangle(315,5,320,10, fill ="black")
+#unfinished pattern
+drawpad.create_rectangle(300,10,305,15, fill ="black")
+drawpad.create_rectangle(310,10,315,15, fill ="black")
+drawpad.create_rectangle(305,15,310,20, fill ="black")
+drawpad.create_rectangle(315,15,320,20, fill ="black")
 
 
 
