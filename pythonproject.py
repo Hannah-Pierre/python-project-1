@@ -26,9 +26,7 @@ drawpad.create_rectangle(300,10,305,15, fill ="black")
 drawpad.create_rectangle(310,10,315,15, fill ="black")
 drawpad.create_rectangle(305,15,310,20, fill ="black")
 drawpad.create_rectangle(315,15,320,20, fill ="black")
-
-
-
+#making the player
 player = drawpad.create_oval(300,0,320,20, fill="magenta")
 #directions for enemies 
 direction = -1
@@ -52,7 +50,6 @@ class MyApp:
 		self.myContainer1 = Frame(parent)
 		self.myContainer1.pack()
 		
-
 		#making the buttons
 		self.button5 = Button(self.myContainer1)
 		self.button5.configure(text="Left", background= "pink")
@@ -65,16 +62,13 @@ class MyApp:
 		self.gobutton = Button(self.myContainer1)
 		self.gobutton.configure(text="press to start", background= "green")
 		self.gobutton.grid(row=1,column=2)
-
-					
+						
 		# binding the buttons												
 
                 self.button5.bind("<Button-1>", self.button5Click)
 		self.button2.bind("<Button-1>", self.button2Click)
 		self.gobutton.bind("<Button-1>", self.gobuttonclick)
-		
-		
-		
+			
 		  
 		#creates the drawpad 
 		drawpad.pack()
@@ -256,23 +250,11 @@ class MyApp:
                 drawpad.move(player, sx1 - x1, sy2 - y2)
             if x2 > e9x1 and x2 < e9x2 and y2 > e9y1 and y2 < e9y2:
                 drawpad.move(player, sx1 - x1, sy2 - y2)
-
-            
-            
+           
+            #calling the animation
             
             drawpad.after(5,self.animate)
-            
-
-
-            
-
-                    
-                
-
-
-
-               
-		
+        		
 		
 myapp = MyApp(root)
 
